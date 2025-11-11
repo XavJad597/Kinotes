@@ -1,0 +1,81 @@
+# Kinotes Application Configuration Template
+# Copy this file to application.properties and fill in your values
+
+# ==========================================
+# Server Configuration
+# ==========================================
+server.port=8080
+spring.application.name=kinotes
+
+# ==========================================
+# Database Configuration (Supabase PostgreSQL)
+# ==========================================
+# Get your connection details from Supabase Dashboard > Settings > Database
+spring.datasource.url=jdbc:postgresql://db.YOUR_PROJECT_REF.supabase.co:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=YOUR_DATABASE_PASSWORD
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# ==========================================
+# JPA/Hibernate Configuration
+# ==========================================
+# Hibernate DDL auto (create, create-drop, validate, update, none)
+# Use 'validate' in production to ensure schema matches entities
+spring.jpa.hibernate.ddl-auto=validate
+
+# Show SQL queries in console (disable in production)
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+# Hibernate dialect for PostgreSQL
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# Enable logging of SQL parameters
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+
+# ==========================================
+# Supabase Configuration
+# ==========================================
+# Get these from Supabase Dashboard > Settings > API
+supabase.url=https://YOUR_PROJECT_REF.supabase.co
+supabase.key=YOUR_SUPABASE_ANON_KEY
+supabase.service-role-key=YOUR_SERVICE_ROLE_KEY
+
+# Supabase Storage bucket for images
+supabase.storage.bucket=note-images
+
+# ==========================================
+# File Upload Configuration
+# ==========================================
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=10MB
+
+# ==========================================
+# Jackson JSON Configuration
+# ==========================================
+spring.jackson.serialization.write-dates-as-timestamps=false
+spring.jackson.time-zone=UTC
+
+# ==========================================
+# Actuator Configuration (Health Checks)
+# ==========================================
+management.endpoints.web.exposure.include=health,info
+management.endpoint.health.show-details=when-authorized
+
+# ==========================================
+# Logging Configuration
+# ==========================================
+logging.level.com.kinotes.kinotes=DEBUG
+logging.level.org.springframework.web=INFO
+logging.level.org.springframework.security=DEBUG
+
+# ==========================================
+# CORS Configuration (if needed for frontend)
+# ==========================================
+# Uncomment and configure if you have a separate frontend
+# cors.allowed-origins=http://localhost:3000,http://localhost:5173
+# cors.allowed-methods=GET,POST,PUT,DELETE,PATCH,OPTIONS
+# cors.allowed-headers=*
+# cors.allow-credentials=true

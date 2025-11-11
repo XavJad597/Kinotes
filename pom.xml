@@ -63,6 +63,12 @@
             <version>1.0.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
         <!-- File Upload -->
         <dependency>
             <groupId>commons-fileupload</groupId>
