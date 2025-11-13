@@ -37,6 +37,16 @@ public class User {
     @Column(name = "full_name", length = 255)
     private String fullName;
 
+    @Column(name = "email", unique = true, nullable = false, length = 255)
+    private String email;
+
+    @Column(name = "password_hash", nullable = false, columnDefinition = "TEXT")
+    private String passwordHash;
+
+    @Column(name = "role", length = 50)
+    @Builder.Default
+    private String role = "user";
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;

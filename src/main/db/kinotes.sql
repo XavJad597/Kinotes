@@ -14,13 +14,13 @@ CREATE TABLE users (
 );
 
 CREATE TABLE notes (
-                       id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-                       user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-                       title VARCHAR(255) NOT NULL,
-                       content TEXT,
-                       image_urls JSONB DEFAULT '[]'::jsonb, -- store multiple Supabase Storage URLs
-                       created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-                       updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    image_urls JSONB DEFAULT '[]'::jsonb, -- store multiple Supabase Storage URLs
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
 CREATE TABLE note_attachments (
@@ -32,9 +32,9 @@ CREATE TABLE note_attachments (
 );
 
 CREATE TABLE reminders (
-                           id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-                           note_id UUID NOT NULL REFERENCES notes(id) ON DELETE CASCADE,
-                           reminder_at TIMESTAMP WITH TIME ZONE NOT NULL,
-                           is_triggered BOOLEAN DEFAULT FALSE,
-                           created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    note_id UUID NOT NULL REFERENCES notes(id) ON DELETE CASCADE,
+    reminder_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    is_triggered BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );

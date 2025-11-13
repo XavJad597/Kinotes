@@ -55,9 +55,10 @@ public class Note {
 
     /**
      * Many notes belong to one user
+     * Nullable because SQL schema allows user_id to be NULL
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
     /**

@@ -55,14 +55,6 @@
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
         </dependency>
-
-        <!-- Supabase Client -->
-        <dependency>
-            <groupId>io.supabase</groupId>
-            <artifactId>supabase-java</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
         <dependency>
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
@@ -127,6 +119,8 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                    <!-- Force UTC timezone to avoid PostgreSQL compatibility issues -->
+                    <jvmArguments>-Duser.timezone=UTC</jvmArguments>
                 </configuration>
             </plugin>
         </plugins>
