@@ -30,7 +30,7 @@ public class NoteResource {
      * Create a new note
      * POST /api/notes
      */
-    @PostMapping
+    @PostMapping("/create-note")
     public ResponseEntity<NoteResponse> createNote(@Valid @RequestBody NoteRequest noteRequest) {
         logger.info("POST /api/notes - Creating note with title: {}", noteRequest.getTitle());
         NoteResponse response = noteService.createNote(noteRequest);
@@ -41,7 +41,7 @@ public class NoteResource {
      * Get all notes
      * GET /api/notes
      */
-    @GetMapping
+    @GetMapping("/all-notes")
     public ResponseEntity<List<NoteResponse>> getAllNotes() {
         logger.info("GET /api/notes - Fetching all notes");
         List<NoteResponse> notes = noteService.getAllNotes();

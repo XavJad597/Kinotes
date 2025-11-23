@@ -34,6 +34,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public NoteResponse createNote(NoteRequest noteRequest) {
+
         logger.info("Creating note with title: {}", noteRequest.getTitle());
         
         Note note = Note.builder()

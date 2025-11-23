@@ -76,16 +76,9 @@ public class AuthService {
         UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
         String token = jwtUtil.generateToken(userDetails);
 
-        return new AuthResponse(token, user.getUsername(), user.getRole());
+        return new AuthResponse(token, user.getUsername(), user.getRole(), user.getId());
     }
 
-    /**
-     * Authenticates a user and returns a JWT token.
-     *
-     * @param request the login request containing username and password
-     * @return authentication response with JWT token
-     * @throws org.springframework.security.core.AuthenticationException if authentication fails
-     */
     @Transactional(readOnly = true)
     public AuthResponse login(LoginRequest request) {
         // Authenticate user
@@ -106,6 +99,6 @@ public class AuthService {
         // Generate JWT token
         String token = jwtUtil.generateToken(userDetails);
 
-        return new AuthResponse(token, user.getUsername(), user.getRole());
+        return new AuthResponse(token, user.getUsername(), user.getRole(), user.getId());
     }
 }
